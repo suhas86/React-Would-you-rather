@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.navbar-default {
+  background-color:teal !important;
+  border-color: teal !important;
+ }
+ .logo-title {
+   color: aliceblue !important;
+ }
+ .navbar-default .navbar-nav>li>a {
+   color: white !important;
+ }
+ .navbar-default .navbar-nav>li>a:hover {
+  color: #D3D3D3 !important;
+}
