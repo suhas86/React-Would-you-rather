@@ -7,9 +7,11 @@ function receiveQuestions(questions) {
     questions
   };
 }
-
 export const getQuestions = () => {
   return dispatch => {
-    return _getQuestions().then(response => dispatch(receiveQuestions(response)));
+    return _getQuestions().then(response =>
+      dispatch(receiveQuestions(response))
+    );
   };
 };
+

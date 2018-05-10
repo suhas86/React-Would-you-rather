@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { saveQuestionAnswer } from "../actions/users";
 import NavBar from "./NavBar";
 import Well from "react-bootstrap/lib/Well";
 import Glyphicon from "react-bootstrap/lib/Glyphicon";
 class Question extends Component {
+  saveVote = option => {
+    const { id, authedUser } = this.props;
+    let request = {};
+    request.qid=id;
+    request.authedUser = authedUser;
+    request.answer = option;
+    this.props.dispatch(saveQuestionAnswer(request));
+  };
   render() {
     const { question, user, isAnswered } = this.props;
     return (
@@ -32,7 +41,11 @@ class Question extends Component {
                     Number of people voted {question.optionOne.votes.length}
                   </p>
                 )}
-                <button type="button" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={e => this.saveVote("optionOne")}
+                >
                   <Glyphicon glyph="glyphicon glyphicon-thumbs-up" /> Vote
                 </button>
               </Well>
@@ -48,7 +61,11 @@ class Question extends Component {
                     Number of people voted {question.optionOne.votes.length}
                   </p>
                 )}
-                <button type="button" className="btn btn-primary">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={e => this.saveVote("optionTwo")}
+                >
                   <Glyphicon glyph="glyphicon glyphicon-thumbs-up" /> Vote
                 </button>
               </Well>
@@ -68,7 +85,8 @@ function mapStateToProps({ authedUser, questions, users }, props) {
     question,
     authedUser,
     user,
-    isAnswered
+    isAnswered,
+    id
   };
 }
 export default connect(mapStateToProps)(Question);
