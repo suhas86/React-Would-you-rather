@@ -26,7 +26,7 @@ class NavBar extends Component {
             <NavItem eventKey={2} href="#">
               Leaderboard
             </NavItem>
-            <NavItem eventKey={3} href="#">
+            <NavItem componentClass={Link} eventKey={3} href="/create-question" to="/create-question">
               Ask a question
             </NavItem>
           </Nav>
