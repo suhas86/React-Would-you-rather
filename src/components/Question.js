@@ -31,7 +31,7 @@ class Question extends Component {
           </div>
           <div className="row">
             <div className="col-md-2">
-              <img className="img-responsive img-circle" src={user.avatarURL} />
+              <img className="img-responsive img-circle" alt="Not found" src={user.avatarURL} />
             </div>
             <div className="col-md-4">
               <Well>
