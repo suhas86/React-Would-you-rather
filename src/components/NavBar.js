@@ -20,23 +20,37 @@ class NavBar extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-          <NavItem eventKey={1} href="#">
+            <NavItem
+              componentClass={Link}
+              eventKey={1}
+              href="/dashboard"
+              to="/dashboard"
+            >
               Dashboard
             </NavItem>
-            <NavItem eventKey={2} href="#">
+            <NavItem
+              componentClass={Link}
+              eventKey={2}
+              href="/leaderboard"
+              to="leaderboard"
+            >
               Leaderboard
             </NavItem>
-            <NavItem componentClass={Link} eventKey={3} href="/create-question" to="/create-question">
+            <NavItem
+              componentClass={Link}
+              eventKey={3}
+              href="/create-question"
+              to="/create-question"
+            >
               Ask a question
             </NavItem>
           </Nav>
           <Nav pullRight>
             <NavItem eventKey={1} href="#">
-            Signed in as:{" "}
-            {authedUser}
+              Signed in as: {authedUser}
             </NavItem>
             <NavItem eventKey={2} href="#">
-            <Glyphicon glyph="glyphicon glyphicon-log-out" /> Logout
+              <Glyphicon glyph="glyphicon glyphicon-log-out" /> Logout
             </NavItem>
           </Nav>
         </Navbar.Collapse>
