@@ -5,7 +5,11 @@ import Glyphicon from "react-bootstrap/lib/Glyphicon";
 import Nav from "react-bootstrap/lib/Nav";
 import NavItem from "react-bootstrap/lib/NavItem";
 import { Link } from "react-router-dom";
+import {setAuthedUser} from "../actions/authedUser"
 class NavBar extends Component {
+  logout = () => {
+    this.props.dispatch(setAuthedUser(null))
+  }
   render() {
     const { authedUser } = this.props;
     return (
@@ -49,7 +53,7 @@ class NavBar extends Component {
             <NavItem eventKey={1} href="#">
               Signed in as: {authedUser}
             </NavItem>
-            <NavItem eventKey={2} href="#">
+            <NavItem eventKey={2} href="#" onClick={this.logout}>
               <Glyphicon glyph="glyphicon glyphicon-log-out" /> Logout
             </NavItem>
           </Nav>

@@ -16,3 +16,6 @@ body {
  .navbar-default .navbar-nav>li>a:hover {
   color: #D3D3D3 !important;
 }
+.answerd {
+  background-color: rgb(207, 120, 80) !important;
+}

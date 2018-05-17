@@ -78,11 +78,8 @@ function mapStateToProps({ questions, users, authedUser }) {
       .map(id => questions[id]);
   }
   return {
-    /*  questions: Object.keys(questions).sort(
-      (a, b) => questions[b].timestamp - questions[a].timestamp
-    ) */
-    answered,
-    unAnswered
+    answered: answered.sort((a,b) => b.timestamp - a.timestamp),
+    unAnswered : unAnswered.sort((a,b) => b.timestamp - a.timestamp)
   };
 }
 export default connect(mapStateToProps)(Dashboard);
