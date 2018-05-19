@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import NavBar from "./NavBar";
 import { createQuestion } from "../actions/questions";
+import { Redirect } from "react-router-dom";
 class CreateQuestion extends Component {
   state = {
     optionOne: "",
-    optionTwo: ""
+    optionTwo: "",
+    toHome: false
   };
   handleInputChange(event) {
     const target = event.target;
@@ -26,8 +28,17 @@ class CreateQuestion extends Component {
         author: authedUser
       })
     );
+    this.setState(() => ({
+      optionOne: "",
+      optionTwo: "",
+      toHome: true
+    }));
   };
   render() {
+    const { toHome } = this.state;
+    if (toHome === true) {
+      return <Redirect to="/dashboard" />;
+    }
     return (
       <div>
         <NavBar />

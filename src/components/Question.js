@@ -72,13 +72,13 @@ class Question extends Component {
                 {isAnswered === true ? (
                   <div>
                     <p>
-                      Number of people voted {question.optionOne.votes.length}
+                      Number of people voted {question.optionTwo.votes.length}
                     </p>
                     <p>
                       Perencatge of votes{" "}
                       {total === 0
                         ? 0
-                        : parseInt(optionOneCount / total * 100, 10)}
+                        : parseInt(optionTwoCount / total * 100, 10)}
                     </p>
                   </div>
                 ) : (
