@@ -7,20 +7,25 @@ import Question from "./Question";
 import CreateQuestion from "./CreateQuestion";
 import Leaderboard from "./Leaderboard";
 import NotFound from "./NotFound"
+import LoadingBar from "react-redux-loading";
 class App extends Component {
   render() {
     const { authedUser } = this.props;
     return (
       <Router>
         <Fragment>
-        <Switch>
-          <Route path="/" exact component={Login} />
-          <PrivateRoute path="/dashboard" component={Dashboard} auth={authedUser} />
-          <PrivateRoute path="/question/:id" component={Question} auth={authedUser} />
-          <PrivateRoute path="/create-question" component={CreateQuestion} auth={authedUser} />
-          <PrivateRoute path="/leaderboard" component={Leaderboard} auth={authedUser} />
-          <Route component={NotFound} />
-          </Switch>
+          <LoadingBar />
+          {this.props.loading === true ? null : (
+            <Switch>
+            <Route path="/" exact component={Login} />
+            <PrivateRoute path="/dashboard" component={Dashboard} auth={authedUser} />
+            <PrivateRoute path="/question/:id" component={Question} auth={authedUser} />
+            <PrivateRoute path="/create-question" component={CreateQuestion} auth={authedUser} />
+            <PrivateRoute path="/leaderboard" component={Leaderboard} auth={authedUser} />
+            <Route component={NotFound} />
+            </Switch>
+          )}
+        
         </Fragment>
       </Router>
     );
