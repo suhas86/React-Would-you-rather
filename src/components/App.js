@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <LoadingBar />
+          <LoadingBar style={{zIndex:'999999' }}  />
           {this.props.loading === true ? null : (
             <Switch>
             <Route path="/" exact component={Login} />
