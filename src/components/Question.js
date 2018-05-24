@@ -4,6 +4,7 @@ import { saveQuestionAnswer } from "../actions/users";
 import NavBar from "./NavBar";
 import Well from "react-bootstrap/lib/Well";
 import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import NotFound from "./NotFound"
 class Question extends Component {
   saveVote = option => {
     const { id, authedUser } = this.props;
@@ -15,9 +16,13 @@ class Question extends Component {
   };
   render() {
     const { question, user, isAnswered, selectedAnswer } = this.props;
+    if (!question) {
+    return  <NotFound />;
+    }
     const optionOneCount = question.optionOne.votes.length;
     const optionTwoCount = question.optionTwo.votes.length;
     const total = optionOneCount + optionTwoCount;
+    
     return (
       <div>
         <NavBar />
@@ -101,6 +106,11 @@ class Question extends Component {
 function mapStateToProps({ authedUser, questions, users }, props) {
   const { id } = props.match.params;
   const question = questions[id];
+  if (!question) {
+    return {
+      question: null
+    }
+  }
   const user = users[question.author];
   const isAnswered = users[authedUser].answers.hasOwnProperty(id);
   let selectedAnswer;

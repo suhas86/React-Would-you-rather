@@ -33,6 +33,13 @@ class Leaderboard extends Component {
     );
   }
 }
+/**
+ * @description Represents a mapStateToProps
+ * @param {Object} users - List of users
+ * Returns Users are ordered in descending order
+ * based on the sum of the number of questions they’ve
+ * answered and the number of questions they’ve asked.
+ */
 function mapStateToProps({ users }) {
   let userList = Object.values(users);
   return {

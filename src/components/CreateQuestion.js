@@ -17,6 +17,9 @@ class CreateQuestion extends Component {
       [name]: value
     }));
   }
+  /**
+   * @description Represents a submit question
+   */
   handleSubmit = e => {
     e.preventDefault();
     const { authedUser } = this.props;

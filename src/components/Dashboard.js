@@ -66,6 +66,13 @@ class Dashboard extends Component {
     );
   }
 }
+/**
+ * @description Represents a mapStateToProps
+ * @param {Object} questions - List of questions
+ * @param {Object} users - List of users
+ * @param {String} authedUser - loggedin user
+ * Returns Answered and unaswered question
+ */
 function mapStateToProps({ questions, users, authedUser }) {
   let answered = [];
   let unAnswered = [];
@@ -78,8 +85,8 @@ function mapStateToProps({ questions, users, authedUser }) {
       .map(id => questions[id]);
   }
   return {
-    answered: answered.sort((a,b) => b.timestamp - a.timestamp),
-    unAnswered : unAnswered.sort((a,b) => b.timestamp - a.timestamp)
+    answered: answered.sort((a, b) => b.timestamp - a.timestamp),
+    unAnswered: unAnswered.sort((a, b) => b.timestamp - a.timestamp)
   };
 }
 export default connect(mapStateToProps)(Dashboard);

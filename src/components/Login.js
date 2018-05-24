@@ -13,9 +13,13 @@ class Login extends Component {
       selectedUser
     }));
   }
+  /**
+   * @description Represents a login
+   * On login navigate to dashboard
+   */
   loginUser() {
     this.props.dispatch(setAuthedUser(this.state.selectedUser.id));
-    this.props.history.push('/dashboard');
+    this.props.history.push("/dashboard");
   }
   componentDidMount() {
     this.props.dispatch(getUsers());
@@ -23,7 +27,6 @@ class Login extends Component {
   render() {
     const { selectedUser } = this.state;
     const { users } = this.props;
-    // ToThink : to move to actions or keep it in login itself
     const userArray = Object.keys(users).map(i => users[i]);
     return (
       <div className="container">

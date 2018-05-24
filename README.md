@@ -7,6 +7,14 @@ In this app, users will be able to answer questions, see which questions they ha
 - Leaderboard : To view board
 - Ask a question: Where user can ask a specific question
 
+## Folder structure
+- actions => All actions for users, questions and auth user can be found here
+- componets => Components required for this application can be found here
+- images => Avatars for each user has been placed here
+- middleware => index.js and logger.js 
+- reducers => All reducers can be found here
+- utis => Where data is defined
+
 ## To run the app
 
 To istall packages
