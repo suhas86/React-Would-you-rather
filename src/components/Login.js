@@ -53,6 +53,7 @@ class Login extends Component {
                 type="button"
                 onClick={this.loginUser.bind(this)}
                 className="btn btn-default btn-lg"
+                disabled={selectedUser === "Select User to login"}
               >
                 Login
               </button>

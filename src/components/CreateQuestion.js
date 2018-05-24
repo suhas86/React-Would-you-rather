@@ -35,7 +35,7 @@ class CreateQuestion extends Component {
     }));
   };
   render() {
-    const { toHome } = this.state;
+    const { toHome,optionOne,optionTwo } = this.state;
     if (toHome === true) {
       return <Redirect to="/dashboard" />;
     }
@@ -69,7 +69,7 @@ class CreateQuestion extends Component {
                 name="optionTwo"
               />
             </div>
-            <button type="submit" className="btn btn-default">
+            <button type="submit" disabled={optionOne === "" || optionTwo ===""} className="btn btn-default">
               Submit
             </button>
           </form>

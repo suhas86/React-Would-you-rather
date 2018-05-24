@@ -156,16 +156,19 @@ let users = {
   
       setTimeout(() => {
         // Updating user record to include question into question array
+        
+        questions = {
+          ...questions,
+          [formattedQuestion.id]: formattedQuestion
+        }
+        users[question.author].questions.push(formattedQuestion.id);
+        let q= users[question.author].questions
         users = {
           ...users,
           [question.author]: {
             ...users[question.author],
-            questions: users[question.author].questions.push(formattedQuestion.id)
+            questions: q
           }
-        }
-        questions = {
-          ...questions,
-          [formattedQuestion.id]: formattedQuestion
         }
   
         res(formattedQuestion)
