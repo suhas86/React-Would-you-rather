@@ -43,8 +43,8 @@ class NavBar extends Component {
             <NavItem
               componentClass={Link}
               eventKey={3}
-              href="/create-question"
-              to="/create-question"
+              href="/add"
+              to="/add"
             >
               Ask a question
             </NavItem>

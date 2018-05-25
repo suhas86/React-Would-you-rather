@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/" exact component={Login} />
             <PrivateRoute path="/dashboard" component={Dashboard} auth={authedUser} />
             <PrivateRoute path="/question/:id" component={Question} auth={authedUser} />
-            <PrivateRoute path="/create-question" component={CreateQuestion} auth={authedUser} />
+            <PrivateRoute path="/add" component={CreateQuestion} auth={authedUser} />
             <PrivateRoute path="/leaderboard" component={Leaderboard} auth={authedUser} />
             <Route component={NotFound} />
             </Switch>
